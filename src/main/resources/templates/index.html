@@ -13,6 +13,12 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <body>
 
+<!--AngularJS-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script src="//cdn.amcharts.com/lib/4/core.js"></script>
+<script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
+
 <div class="container-fluid main">
     <div class="row">
 
@@ -35,12 +41,12 @@
             <tr>
                 <td>20-01</td>
                 <td>5</td>
-                <td><a href="#">Edit</a></td>
+                <td><a href="/group">Edit</a></td>
             </tr>
             <tr>
                 <td>20-01</td>
                 <td>5</td>
-                <td><a href="#">Edit</a></td>
+                <td><a href="/group">Edit</a></td>
             </tr>
             </tbody>
         </table>
@@ -51,7 +57,7 @@
     <div class="col-md-3">
         <br>
         <input type="text" class="form-control" id="input" placeholder="Номер Группы"><br>
-        <button type="button" class="btn btn-primary">Добавить Новую Группу</button>
+        <button onclick="location.href='/group'" type="button" class="btn btn-primary">Добавить Новую Группу</button>
     </div>
     </div>
 
