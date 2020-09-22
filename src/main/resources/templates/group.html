@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Group_Students</title>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!--AngularJS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <!--My Script-->
+    <script src="script/index.js" type="text/javascript"></script>
 </head>
-<!-- CSS only -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-<!-- JS, Popper.js, and jQuery -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-<body>
-
-<!--AngularJS-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-<script src="//cdn.amcharts.com/lib/4/core.js"></script>
-<script src="//cdn.amcharts.com/lib/4/charts.js"></script>
-<script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
-
+<body ng-app="INDEX" ng-controller="INDEX_CONTROLLER">
 <div class="container-fluid main">
     <div class="row">
-
-        <div class="col-md-3">
-            <h1>Группа № 19-01</h1>
+        <div class="col-md-7">
+            <h1 ng-model="groupName">Группа {{groupName}}</h1>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-7">
             <table class="table table-bordered">
                 <thead class="thead-light">
                 <tr>
@@ -38,14 +35,9 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>20.09.2020</td>
-                    <td>Алексеев Петр</td>
-                    <td><a href="#">Delete</a></td>
-                </tr>
-                <tr>
-                    <td>20.09.2020</td>
-                    <td>Алексеев Петр</td>
+                <tr ng-repeat = "students in studentsObject">
+                    <td>{{students.date}}</td>
+                    <td>{{students.fullName}}</td>
                     <td><a href="#">Delete</a></td>
                 </tr>
                 </tbody>
@@ -54,7 +46,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-7">
             <br>
             <input type="text" class="form-control" id="input" placeholder="ФИО"><br>
             <button type="button" class="btn btn-primary">Принять Нового Студента</button>
