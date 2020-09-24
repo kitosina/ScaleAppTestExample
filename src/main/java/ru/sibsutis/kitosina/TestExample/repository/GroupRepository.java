@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 public interface GroupRepository extends JpaRepository<Group, String> {
 
     @Query(value = "select quantity_students from group_info where group_name = ?1", nativeQuery = true)
-    Integer findByGroupName(@Param("group_name") String groupName);
+    Integer getQuantityStudents(@Param("group_name") String groupName);
 
     @Transactional
     @Modifying

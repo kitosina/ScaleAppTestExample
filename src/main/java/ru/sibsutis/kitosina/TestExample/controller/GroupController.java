@@ -9,7 +9,6 @@ import ru.sibsutis.kitosina.TestExample.service.GroupService;
 
 @RestController
 @RequestMapping("/groups")
-@Slf4j
 public class GroupController {
 
     private GroupService groupService;
@@ -30,15 +29,14 @@ public class GroupController {
     }
 
     @GetMapping("/by/{groupName}")
-    public ResponseEntity findByGroupName(@PathVariable String groupName) {
-        return ResponseEntity.ok(groupService.findByGroupName(groupName));
+    public ResponseEntity getQuantityStudents(@PathVariable String groupName) {
+        return ResponseEntity.ok(groupService.getQuantityStudents(groupName));
     }
 
     @PostMapping("/update")
     //String quantityStudents, String group_name
     //20-02
     public void setGroupInfoQuantityStudents(@RequestBody Group group) {
-        log.warn(group.toString());
         groupService.setGroupInfoQuantityStudents(group.getQuantityStudents(), group.getGroupName());
     }
 }

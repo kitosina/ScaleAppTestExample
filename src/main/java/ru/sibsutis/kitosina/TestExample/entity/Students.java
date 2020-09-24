@@ -16,7 +16,7 @@ import java.util.Date;
 public class Students {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -32,8 +32,8 @@ public class Students {
     private String lastName;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.ALL)
-    @JoinColumn(name = "group_name")
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "group_name", nullable = false)
     private Group group;
 
 }

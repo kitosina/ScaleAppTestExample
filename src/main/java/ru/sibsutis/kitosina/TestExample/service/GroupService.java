@@ -27,8 +27,8 @@ public class GroupService {
         return groupRepository.findAll();
     }
 
-    public Integer findByGroupName(String groupName) {
-        return groupRepository.findByGroupName(groupName);
+    public Integer getQuantityStudents(String groupName) {
+        return groupRepository.getQuantityStudents(groupName);
     }
 
     public void setGroupInfoQuantityStudents(Integer quantityStudents, String group_name) {

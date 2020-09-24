@@ -1,14 +1,19 @@
 package ru.sibsutis.kitosina.TestExample.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.sibsutis.kitosina.TestExample.entity.GroupStudents;
 import ru.sibsutis.kitosina.TestExample.entity.Students;
 import ru.sibsutis.kitosina.TestExample.service.StudentsService;
 
-import java.util.Objects;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
+@Slf4j
 @RequestMapping("/students")
 public class StudentsController {
 
@@ -20,8 +25,9 @@ public class StudentsController {
     }
 
     @PostMapping
-    public ResponseEntity save(Students students) {
-        return ResponseEntity.ok(studentsService.save(students));
+    public ResponseEntity save(@RequestBody GroupStudents groupStudents) throws ParseException {
+        log.warn(groupStudents.toString());
+        return ResponseEntity.ok(studentsService.save(groupStudents));
     }
 
     @GetMapping
