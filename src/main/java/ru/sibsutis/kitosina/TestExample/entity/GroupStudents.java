@@ -16,6 +16,6 @@ public class GroupStudents {
     private String middleName;
     private String lastName;
     private String groupName;
-    private Integer quantityStudents;
+//    private Integer quantityStudents;
 
 }

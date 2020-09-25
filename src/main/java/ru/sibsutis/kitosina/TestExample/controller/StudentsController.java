@@ -40,9 +40,9 @@ public class StudentsController {
         return ResponseEntity.ok(studentsService.findByGroupGroupName(groupName));
     }
 
-    @DeleteMapping("/{firstName}/{lastName}")
-    public void deleteByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName) {
-        studentsService.deleteByFirstNameAndLastName(firstName, lastName);
+    @DeleteMapping("/{firstName}/{lastName}/{groupName}")
+    public void deleteByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName, @PathVariable String groupName) {
+        studentsService.deleteByFirstNameAndLastName(firstName, lastName, groupName);
     }
 
 }

@@ -6,32 +6,33 @@ import org.springframework.stereotype.Service;
 import ru.sibsutis.kitosina.TestExample.entity.Group;
 import ru.sibsutis.kitosina.TestExample.entity.GroupStudents;
 import ru.sibsutis.kitosina.TestExample.entity.Students;
+import ru.sibsutis.kitosina.TestExample.repository.GroupRepository;
 import ru.sibsutis.kitosina.TestExample.repository.StudentsRepository;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @Slf4j
 public class StudentsService {
 
     private final StudentsRepository studentsRepository;
-    private final SimpleDateFormat dateFor = new SimpleDateFormat("yyyy-MM-dd");;
+    private final GroupRepository groupRepository;
+//    private final SimpleDateFormat dateFor = new SimpleDateFormat("yyyy-MM-dd");;
 
     @Autowired
-    public StudentsService(StudentsRepository studentsRepository) {
+    public StudentsService(StudentsRepository studentsRepository, GroupRepository groupRepository) {
         this.studentsRepository = studentsRepository;
+        this.groupRepository = groupRepository;
     }
 
     public Students save(GroupStudents groupStudents) {
-        Group group = new Group(groupStudents.getGroupName(), groupStudents.getQuantityStudents(), null);
+        Group group = groupRepository.findByGroupName(groupStudents.getGroupName());
         Students students = new Students(
                 null, groupStudents.getDate(),
                 groupStudents.getFirstName(), groupStudents.getMiddleName(),
-                groupStudents.getLastName(), group);
-
+                groupStudents.getLastName(), group
+        );
         return studentsRepository.save(students);
     }
 
@@ -43,8 +44,8 @@ public class StudentsService {
         return studentsRepository.findByGroup_GroupName(groupName);
     }
 
-    public void deleteByFirstNameAndLastName(String firstName,String lastName) {
-        studentsRepository.deleteByFirstNameAndLastName(firstName, lastName);
+    public void deleteByFirstNameAndLastName(String firstName,String lastName, String groupName) {
+        studentsRepository.deleteByFirstNameAndLastName(firstName, lastName, groupName);
     }
 
 }

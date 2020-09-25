@@ -38,7 +38,7 @@
                 <tr ng-repeat = "students in studentsObject">
                     <td>{{students.date}}</td>
                     <td>{{students.fullName}}</td>
-                    <td><a href="#">Delete</a></td>
+                    <td><a ng-click = "delete($index)" href="#delete">Delete</a></td>
                 </tr>
                 </tbody>
             </table>
@@ -48,8 +48,8 @@
     <div class="row">
         <div class="col-md-7">
             <br>
-            <input type="text" class="form-control" id="input" placeholder="ФИО"><br>
-            <button type="button" class="btn btn-primary">Принять Нового Студента</button>
+            <input type="text" class="form-control inputFIO" id="input" placeholder="ФИО"><br>
+            <button ng-click="addStudent()" type="button" class="btn btn-primary">Принять Нового Студента</button>
             <br>
             <br>
             <button onclick="location.href='/'" type="button" class="btn btn-primary">Вернуться к Списку Групп</button>

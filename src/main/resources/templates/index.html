@@ -19,7 +19,7 @@
 
 <body  ng-app="INDEX" ng-controller="INDEX_CONTROLLER">
 
-<div ng-init = "initStudentsTable()" class="container-fluid main">
+<div class="container-fluid main">
     <div class="row">
 
         <div class="col-md-7">
@@ -52,8 +52,8 @@
     <div class="row">
     <div class="col-md-7">
         <br>
-        <input type="text" class="form-control" id="input" placeholder="Номер Группы"><br>
-        <button onclick="location.href='/group'" type="button" class="btn btn-primary">Добавить Новую Группу</button>
+        <input type="text" class="form-control inputNameGroup" id="input" placeholder="Номер Группы"><br>
+        <button ng-click = "addGroup()"  type="button" class="btn btn-primary btnAddGroup">Добавить Новую Группу</button>
     </div>
     </div>
 

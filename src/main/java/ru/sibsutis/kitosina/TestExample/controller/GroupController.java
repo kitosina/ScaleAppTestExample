@@ -34,8 +34,6 @@ public class GroupController {
     }
 
     @PostMapping("/update")
-    //String quantityStudents, String group_name
-    //20-02
     public void setGroupInfoQuantityStudents(@RequestBody Group group) {
         groupService.setGroupInfoQuantityStudents(group.getQuantityStudents(), group.getGroupName());
     }

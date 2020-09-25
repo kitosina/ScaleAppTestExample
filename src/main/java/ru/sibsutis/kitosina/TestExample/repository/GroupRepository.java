@@ -15,6 +15,8 @@ public interface GroupRepository extends JpaRepository<Group, String> {
     @Query(value = "select quantity_students from group_info where group_name = ?1", nativeQuery = true)
     Integer getQuantityStudents(@Param("group_name") String groupName);
 
+    Group findByGroupName(String groupName);
+
     @Transactional
     @Modifying
     @Query(value = "update group_info set quantity_students = ?1 where group_name = ?2", nativeQuery = true)
