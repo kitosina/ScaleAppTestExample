@@ -70,14 +70,15 @@ app.controller("INDEX_CONTROLLER",function($scope, $http, $filter, $window) {
         })
     }
 
-    let addGroupInTableDB = function () {
+    let addGroupInTableDB = function (inputNameGroup) {
         console.log("group in db")
+        console.log($scope.groupName)
         $http({
             url: '/groups',
             method: 'POST',
             data: {
-                "groupName": $scope.groupName,
-                "quantityStudents":0
+                "groupName": inputNameGroup,
+                "quantityStudents": 0
             }
         }).then(function (response) {
             loadTableStudents()
@@ -138,9 +139,10 @@ app.controller("INDEX_CONTROLLER",function($scope, $http, $filter, $window) {
             alert("Введите имя группы")
         } else {
             localStorage.setItem("tasks", $(".inputNameGroup").val());
-            addGroupInTableDB()
+            addGroupInTableDB($(".inputNameGroup").val())
             $window.location.href = '/group';
         }
+        console.log($scope.groupName)
     }
 
 });
