@@ -1,6 +1,6 @@
 # TestExample ([scaleapps-java-test02.pdf](https://github.com/kitosina/CurrencyStatisticSystem/files/5294408/scaleapps-java-test02.pdf))
 ### Project Download
-`git clone https://github.com/kitosina/CurrencyStatisticSystem.git`
+`git clone https://github.com/kitosina/TestExample.git`
 ***
 ### Program assembly
 `sudo gradle build`
